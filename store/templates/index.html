@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 2rem;
+        width: 100%;
+
+        justify-content: space-between;
+        margin: 1rem 0 1rem 0;
+    }
+    img {
+        width: 250px;
+        height: 300px;
+        object-fit: contain;
+    }
+    .inner {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        padding: 20px;
+        text-decoration: none ;
+        color: inherit;
+        
+    }
+    .inner:hover {
+        background: #eeeeee;
+
+    }
+</style>
+
+<h1> Your Moto Shop </h1>
+
+<div class="container">
+    {% for product in products %}
+        <a class="inner" href="{% url 'product' product.slug  %}">
+            <h2 class="test">{{product.name}}</h2>
+            <p>{{product.description}}</p>
+            <img src="{{product.thumbnail.url}}" alt="{{product.name}}" box-shadow: "8px 8px 5px #444">
+            <!-- <a href="{% url 'product' product.slug  %}">Voir l'article</a> -->
+        </a>
+    {% endfor %}
+</div>
+
+{% endblock %} 

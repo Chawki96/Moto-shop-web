@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1> Your Moto Shop </h1>
+
+
+ <h2>{{product.name}}</h2>
+ <h3>price: {{product.price}}</h3>
+ <img src="{{product.thumbnail.url}}" alt="{{product.name}}">
+ <p>{{product.description}}</p>
+ <p>il nous reste:{{product.stock}} article en stock</p>
+
+
+
+{% endblock %} 
